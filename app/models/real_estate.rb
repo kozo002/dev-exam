@@ -12,6 +12,6 @@ class RealEstate < ApplicationRecord
 
   def age=(val)
     now = Date.today
-    self.built_at = now.change(year: now.year - val).beginning_of_year
+    self.built_at = now.change(year: now.year - val.to_i).beginning_of_year
   end
 end
