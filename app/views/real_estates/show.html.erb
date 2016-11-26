@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= RealEstate.model_name.human %></h1>
+
 <p>
   <strong><%= RealEstate.human_attribute_name(:name) %>:</strong>
   <%= @real_estate.name %>
@@ -24,6 +26,27 @@
   <strong><%= RealEstate.human_attribute_name(:notes) %>:</strong>
   <%= @real_estate.notes %>
 </p>
+
+<hr />
+
+<% @real_estate.near_stations.each_with_index do |near_station, index| %>
+  <h3><%= NearStation.model_name.human + (index + 1).to_s %></h3>
+
+  <p>
+    <strong><%= NearStation.human_attribute_name(:line_name) %>:</strong>
+    <%= near_station.line_name %>
+  </p>
+
+  <p>
+    <strong><%= NearStation.human_attribute_name(:name) %>:</strong>
+    <%= near_station.name %>
+  </p>
+
+  <p>
+    <strong><%= NearStation.human_attribute_name(:take_minutes) %>:</strong>
+    <%= near_station.take_minutes %>分
+  </p>
+<% end %>
 
 <%= link_to '編集', edit_real_estate_path(@real_estate) %> |
 <%= link_to '戻る', real_estates_path %>
