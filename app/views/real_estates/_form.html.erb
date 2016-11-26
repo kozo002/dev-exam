@@ -1,0 +1,63 @@
+<%= form_for(real_estate) do |f| %>
+  <% if real_estate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= real_estate.errors.count %>件のエラーにより保存できませんでした</h2>
+
+      <ul>
+      <% real_estate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rent %>
+    <%= f.number_field :rent %>円
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.text_field :age %>年
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
+  <hr />
+
+  <%= f.fields_for :near_stations do |nf| %>
+    <h3><%= NearStation.model_name.human + (nf.index + 1).to_s %></h3>
+
+    <div class="field">
+      <%= nf.label :line_name %>
+      <%= nf.text_field :line_name %>
+    </div>
+
+    <div class="field">
+      <%= nf.label :name %>
+      <%= nf.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= nf.label :take_minutes %>
+      <%= nf.text_field :take_minutes %>分
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
