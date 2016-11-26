@@ -1,4 +1,8 @@
 class RealEstate < ApplicationRecord
+  has_many :near_stations, inverse_of: :real_estate
+
+  accepts_nested_attributes_for :near_stations
+
   validates :name, presence: true
   validates :rent, presence: true
   validates :address, presence: true
