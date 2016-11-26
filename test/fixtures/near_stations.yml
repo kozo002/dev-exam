@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  line_name: MyString
+  take_minutes: 1
+  real_estate_id: 1
+
+two:
+  name: MyString
+  line_name: MyString
+  take_minutes: 1
+  real_estate_id: 1
