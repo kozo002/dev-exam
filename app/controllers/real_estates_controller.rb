@@ -15,6 +15,7 @@ class RealEstatesController < ApplicationController
   # GET /real_estates/new
   def new
     @real_estate = RealEstate.new
+    2.times { @real_estate.near_stations.build }
   end
 
   # GET /real_estates/1/edit
