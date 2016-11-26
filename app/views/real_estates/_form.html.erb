@@ -36,6 +36,27 @@
     <%= f.text_area :notes %>
   </div>
 
+  <hr />
+
+  <%= f.fields_for :near_stations do |nf| %>
+    <h3><%= NearStation.model_name.human + (nf.index + 1).to_s %></h3>
+
+    <div class="field">
+      <%= nf.label :line_name %>
+      <%= nf.text_field :line_name %>
+    </div>
+
+    <div class="field">
+      <%= nf.label :name %>
+      <%= nf.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= nf.label :take_minutes %>
+      <%= nf.text_field :take_minutes %>分
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
